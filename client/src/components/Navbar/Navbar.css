@@ -1,0 +1,19 @@
+.links {
+  text-decoration: none;
+  color: #242323;
+  font-weight: 400;
+  font-family: Poppins;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 134px;
+  height: 41px;
+}
+
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+  background-color: #0e0e23 !important;
+}
+.css-10hburv-MuiTypography-root {
+  color: #fafafa !important;
+}
