@@ -19,7 +19,7 @@ import { toast } from 'react-toastify'
 
 
 const Login = () => {
-  const { loading, user, loggedIn } = useSelector((store) => store.userSlice);
+  const { loading, user } = useSelector((store) => store.userSlice);
   const {
     register,
     handleSubmit,
