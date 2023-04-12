@@ -47,6 +47,8 @@ const Login = () => {
         theme: "light",
       })
     } else if (user) {
+      navigate("/");
+
       toast.success('Loggedin Successfully', {
         position: "top-right",
         autoClose: 3000,
@@ -57,6 +59,7 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       })
+
 
     } else {
       toast.error('email or password is incorrect ', {
@@ -72,9 +75,9 @@ const Login = () => {
     }
     console.log(data);
   };
-  if (user) {
-    navigate("/");
-  }
+  // if (user) {
+  //   navigate("/");
+  // }
   return (
     <div>
       <Grid mt={6} mb={6} container component="main" sx={{ height: "100vh" }}>

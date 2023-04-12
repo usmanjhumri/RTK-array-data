@@ -54,7 +54,7 @@ const userSlice = createSlice({
         state.user = null
 
       }
-      // state.loginHandle.push(action.payload);
+
     },
     logoutUser: (state, action) => {
       state.loginHandle = state.loginHandle.filter(
