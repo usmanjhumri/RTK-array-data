@@ -8,13 +8,13 @@ import {
   Typography,
 } from "@mui/material";
 import NAV_LOGO from "./NavImges/Logo.png";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, Navigate, useNavigate } from "react-router-dom";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { } from '../../RTK/slice/userSlice'
+import { logoutUser } from '../../RTK/slice/userSlice'
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
 import { useDispatch, useSelector } from 'react-redux'
@@ -22,6 +22,12 @@ import { useDispatch, useSelector } from 'react-redux'
 const Navbars = () => {
   const { isLoggedIn } = useSelector((store) => store.userSlice)
   const dispatch = useDispatch()
+
+  // const navigate = useNavigate()
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    // navigate('/')
+  }
   const [state, setState] = useState({
     right: false,
   });
@@ -124,27 +130,45 @@ const Navbars = () => {
                     </NavLink>
                   </Typography>
                 </Box>
-                <Box>
-                  <Typography>
-                    <NavLink className="links white" to="/signup">
-                      SIGN UP
-                    </NavLink>
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography>
-                    <NavLink className="links white" to="/login">
-                      Login
-                    </NavLink>
-                  </Typography>
-                </Box>
-                <Box>
-                  <Typography>
-                    <NavLink className="links white" to="/logout">
-                      Logout
-                    </NavLink>
-                  </Typography>
-                </Box>
+
+                {
+                  !isLoggedIn && (
+                    <>
+                      <Box>
+                        <Typography>
+                          <NavLink className="links white" to="/signup">
+                            SIGN UP
+                          </NavLink>
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography>
+                          <NavLink className="links white" to="/login">
+                            Login
+                          </NavLink>
+                        </Typography>
+                      </Box>
+                    </>
+                  )
+                }
+
+
+
+                {
+                  isLoggedIn && (
+                    <>
+                      <Box>
+                        <Typography>
+                          <NavLink onClick={handleLogout} className="links white" to="/">
+                            Logout
+                          </NavLink>
+                        </Typography>
+                      </Box>
+                    </>
+                  )
+                }
+
+
               </Box>
             </Hidden>
 
