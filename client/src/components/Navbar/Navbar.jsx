@@ -14,11 +14,14 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-
+import { } from '../../RTK/slice/userSlice'
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
+import { useDispatch, useSelector } from 'react-redux'
 
 const Navbars = () => {
+  const { isLoggedIn } = useSelector((store) => store.userSlice)
+  const dispatch = useDispatch()
   const [state, setState] = useState({
     right: false,
   });

@@ -56,8 +56,14 @@ const userSlice = createSlice({
 
       }
 
+      state.isLoggedIn = true;
+      state.user = action.payload
+
     },
     logoutUser: (state, action) => {
+
+      state.isLoggedIn = false;
+      state.user = null
       state.loginHandle = state.loginHandle.filter(
         (user) => user.username !== action.payload
       );
