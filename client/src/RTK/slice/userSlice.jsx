@@ -26,6 +26,7 @@ const initialState = {
   signUp: false,
   user: null,
   loading: false,
+  isLoggedIn: false,
 };
 
 const userSlice = createSlice({
