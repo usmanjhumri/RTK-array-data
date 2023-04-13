@@ -135,6 +135,13 @@ const Navbars = () => {
                     </NavLink>
                   </Typography>
                 </Box>
+                <Box>
+                  <Typography>
+                    <NavLink className="links white" to="/logout">
+                      Logout
+                    </NavLink>
+                  </Typography>
+                </Box>
               </Box>
             </Hidden>
 
