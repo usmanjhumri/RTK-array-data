@@ -35,33 +35,35 @@ const Login = () => {
         password: data.password,
       })
     );
-    if (user) {
-      navigate('/')
-      toast.success('Loggedin Successfully', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      })
+    console.log(user);
+    setTimeout(() => {
+      if (user) {
+        navigate('/')
+        toast.success(`Welcome  ${user.firstname}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
 
+      } else {
+        toast.error('email or password is incorrect ', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+    }, 4000)
 
-
-    } else {
-      toast.error('email or password is incorrect ', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      })
-    }
     console.log(data);
   };
 

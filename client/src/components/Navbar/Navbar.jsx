@@ -16,11 +16,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { logoutUser } from '../../RTK/slice/userSlice'
 import MenuIcon from "@mui/icons-material/Menu";
+
 import "./Navbar.css";
 import { useDispatch, useSelector } from 'react-redux'
 
 const Navbars = () => {
-  const { isLoggedIn } = useSelector((store) => store.userSlice)
+  const { isLoggedIn, user } = useSelector((store) => store.userSlice)
   const dispatch = useDispatch()
 
   // const navigate = useNavigate()

@@ -57,6 +57,8 @@ const userSlice = createSlice({
       console.log(email, password, ' email and password');
 
       const user = state.signUpHandle.find((user) => user.email === email && user.password === password)
+
+      console.log(user, "Found user");
       if (user) {
         state.isLoggedIn = true;
         state.user = user
