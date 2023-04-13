@@ -32,7 +32,13 @@ const initialState = {
 const userSlice = createSlice({
   name: "userSlice",
   initialState,
+
+  //----------------------Reducers-------------------------------//
+
   reducers: {
+
+    //-------------------------------signUpHandle---------------------------------//
+
     signUpHandle: (state, action) => {
       console.log(action.payload, ' action payload');
 
@@ -42,6 +48,9 @@ const userSlice = createSlice({
       state.signUpHandle = value
       console.log(state.signUpHandle, ' state signuphandle');
     },
+
+    //-------------------------------loginHanle---------------------------------//
+
     loginHandle: (state, action) => {
       console.log(action.payload, ' login action');
       const { email, password } = action.payload
@@ -60,6 +69,10 @@ const userSlice = createSlice({
       state.user = action.payload
 
     },
+
+
+    //-----------------------------logoutUser------------------------------------//
+
     logoutUser: (state, action) => {
 
       state.isLoggedIn = false;
@@ -71,7 +84,12 @@ const userSlice = createSlice({
   },
 });
 
+//----------------------------Exporting Reducers action-----------------------------------//
+
 export const { signUpHandle, logoutUser, loginHandle } = userSlice.actions;
+
+//---------------------------Exporting userSlice-------------------------//
+
 export default userSlice.reducer;
 
 

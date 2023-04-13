@@ -35,19 +35,8 @@ const Login = () => {
         password: data.password,
       })
     );
-    if (loading) {
-      toast.info("logging in ....", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      })
-    } else if (user) {
-
+    if (user) {
+      navigate('/')
       toast.success('Loggedin Successfully', {
         position: "top-right",
         autoClose: 3000,
@@ -58,6 +47,7 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       })
+
 
 
     } else {
@@ -74,9 +64,10 @@ const Login = () => {
     }
     console.log(data);
   };
-  if (user) {
-    navigate("/");
-  }
+
+  // if (user) {
+  //   navigate("/");
+  // }
   return (
     <div>
       <Grid mt={6} mb={6} container component="main" sx={{ height: "100vh" }}>
