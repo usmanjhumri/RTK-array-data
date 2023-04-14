@@ -47,6 +47,7 @@ const userSlice = createSlice({
       console.log(value, ' value');
       state.signUpHandle = value
       console.log(state.signUpHandle, ' state signuphandle');
+      return state
     },
 
     //-------------------------------loginHanle---------------------------------//
@@ -62,12 +63,8 @@ const userSlice = createSlice({
       if (user) {
         state.isLoggedIn = true;
         state.user = user
-        state.loginHandle.push(user)
-      } else {
-        state.isLoggedIn = false
-        state.user = null
-
       }
+      return state
 
     },
 
