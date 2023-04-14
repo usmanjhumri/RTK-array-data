@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -28,6 +28,8 @@ const Login = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
+  const [checkLogin, setCheckLogin] = useState(false)
+
   const onSubmit = (data) => {
     dispatch(
       loginHandle({
@@ -35,26 +37,43 @@ const Login = () => {
         password: data.password,
       })
     );
-    console.log(user);
-    // setTimeout(() => {
-    if (user && isLoggedIn) {
-      navigate('/')
-      toast.success(`Welcome  ${user.firstname}`, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      })
+
+    setCheckLogin(true)
+    console.log(data, "DATTATATAT");
+  };
+
+
+  useEffect(() => {
+
+    if (checkLogin) {
+
+      console.log("working=====>>>>>>");
+
+
+      if (user && isLoggedIn) {
+
+        toast.success(`Welcome  ${user.firstname}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+        setCheckLogin(false)
+        navigate('/')
+
+      } else {
+        setCheckLogin(false)
+        toast.error("USER NOT FOUNT")
+      }
 
     }
-    // }, 5000)
 
-    console.log(data);
-  };
+
+  }, [user, isLoggedIn, checkLogin])
 
   // if (user) {
   //   navigate("/");
