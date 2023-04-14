@@ -24,10 +24,12 @@ const Navbars = () => {
   const { isLoggedIn, user } = useSelector((store) => store.userSlice)
   const dispatch = useDispatch()
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const handleLogout = () => {
     dispatch(logoutUser())
-    // navigate('/')
+    if (isLoggedIn && user === true) {
+      navigate('/signup')
+    }
   }
   const [state, setState] = useState({
     right: false,

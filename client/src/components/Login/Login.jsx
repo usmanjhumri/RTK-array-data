@@ -54,7 +54,7 @@ const Login = () => {
 
         toast.success(`Welcome  ${user.firstname}`, {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -67,7 +67,16 @@ const Login = () => {
 
       } else {
         setCheckLogin(false)
-        toast.error("USER NOT FOUNT")
+        toast.error("email or password is in correct", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
       }
 
     }

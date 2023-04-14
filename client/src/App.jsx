@@ -29,32 +29,3 @@ function App() {
 export default App;
 
 
-
-
-
-
- // if (data.Confirmpassword === data.password) {
-
-    //   dispatch(
-    //     signUpHandle({
-    //       firstname: data.firstName,
-    //       lastname: data.lastName,
-    //       email: data.email,
-    //       phonenumber: data.phoneNumber,
-    //       address: data.address,
-    //       password: data.password,
-    //       confirmpassword: data.Confirmpassword,
-    //     })
-    //   ).push(...signUpHandle)
-    // } else {
-    //   toast.error("password not matched", {
-    //     position: "top-right",
-    //     autoClose: 3000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //   });
-    // }
