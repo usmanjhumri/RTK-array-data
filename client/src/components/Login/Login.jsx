@@ -19,7 +19,7 @@ import { toast } from 'react-toastify'
 
 
 const Login = () => {
-  const { loading, user } = useSelector((store) => store.userSlice);
+  const { loading, user, isLoggedIn } = useSelector((store) => store.userSlice);
   const {
     register,
     handleSubmit,
@@ -36,33 +36,33 @@ const Login = () => {
       })
     );
     console.log(user);
-    setTimeout(() => {
-      if (user) {
-        navigate('/')
-        toast.success(`Welcome  ${user.firstname}`, {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        })
+    // setTimeout(() => {
+    if (user && isLoggedIn) {
+      navigate('/')
+      toast.success(`Welcome  ${user.firstname}`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })
 
-      } else {
-        toast.error('email or password is incorrect ', {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        })
-      }
-    }, 4000)
+    } else {
+      toast.error('email or password is incorrect ', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      })
+    }
+    // }, 5000)
 
     console.log(data);
   };
