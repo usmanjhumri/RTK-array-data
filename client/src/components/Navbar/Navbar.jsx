@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import {
   Box,
+  Button,
   Container,
+  FormControl,
   Grid,
   Hidden,
   IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
   Typography,
 } from "@mui/material";
 import NAV_LOGO from "./NavImges/Logo.png";
@@ -16,7 +21,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { logoutUser } from '../../RTK/slice/userSlice'
 import MenuIcon from "@mui/icons-material/Menu";
-
+import TreeView from '@mui/lab/TreeView';
+import TreeItem from '@mui/lab/TreeItem';
 import "./Navbar.css";
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -27,9 +33,11 @@ const Navbars = () => {
   const navigate = useNavigate()
   const handleLogout = () => {
     dispatch(logoutUser())
-    if (isLoggedIn && user === true) {
-      navigate('/signup')
-    }
+    // window.location.href = '/signup';
+  }
+
+  const handleAddbtn = () => {
+
   }
   const [state, setState] = useState({
     right: false,
@@ -160,12 +168,21 @@ const Navbars = () => {
                 {
                   isLoggedIn && (
                     <>
-                      <Box>
-                        <Typography>
-                          <NavLink onClick={handleLogout} className="links white" to="/">
-                            Logout
-                          </NavLink>
-                        </Typography>
+                      <Box sx={{ minWidth: 130, }}>
+                        <FormControl fullWidth size="small">
+                          <InputLabel id="demo-simple-select-label">{user.firstname}</InputLabel>
+                          <Select labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+
+                            label={user.firstname}>
+                            <MenuItem>
+
+                              <NavLink onClick={handleLogout} className="links white" to="/signup">
+                                Logout
+                              </NavLink>
+                            </MenuItem>
+                          </Select>
+                        </FormControl>
                       </Box>
                     </>
                   )
