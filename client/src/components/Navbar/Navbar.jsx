@@ -56,7 +56,7 @@ const Navbars = () => {
   };
 
   const list = (anchor) => (
-    <Box
+    <Box mt={3}
       pl={10}
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 300,
@@ -118,13 +118,19 @@ const Navbars = () => {
                   </Typography>
                 </Box>
 
-                <Box>
-                  <Typography>
-                    <NavLink className="links" to="/fashion">
-                      FASHION
-                    </NavLink>
-                  </Typography>
-                </Box>
+                {
+                  isLoggedIn && (
+                    <>
+                      <Box>
+                        <Typography>
+                          <NavLink className="links" to="/addproduct">
+                            Add Product
+                          </NavLink>
+                        </Typography>
+                      </Box>
+                    </>
+                  )
+                }
 
                 <Box>
                   <Typography>

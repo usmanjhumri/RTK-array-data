@@ -11,6 +11,8 @@ import MianHome from "./components/MainHomePage/MianHome";
 import LoginRoutes from "./routes/LoginRoutes";
 import Login from "./components/Login/Login";
 import Fashion from "./components/Fashion/Fashion";
+import Favourets from "./components/Favourets/Favourets";
+import LifeStyle from "./components/LifeStyle/LifeStyle";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,7 +24,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<MianHome />} />
-        <Route path="/fashion" element={<Fashion />} />
+        <Route path="/addproduct" element={<Fashion />} />
+        <Route path="/favourite" element={<Favourets />} />
+        <Route path="/lifestyle" element={<LifeStyle />} />
       </Routes>
       <Footer />
     </div>

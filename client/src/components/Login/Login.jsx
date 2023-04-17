@@ -30,6 +30,9 @@ const Login = () => {
 
   const [checkLogin, setCheckLogin] = useState(false)
 
+  console.log(user, isLoggedIn, ' user and loggedin');
+  console.log(checkLogin, ' checklogin');
+
   const onSubmit = (data) => {
     dispatch(
       loginHandle({

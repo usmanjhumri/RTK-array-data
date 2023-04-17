@@ -22,8 +22,9 @@ const initialState = {
     }
   ],
   loginHandle: [],
-  product: [],
+  products: [],
   signUp: false,
+
   user: null,
   loading: false,
   isLoggedIn: false,
@@ -50,7 +51,7 @@ const userSlice = createSlice({
       return state
     },
 
-    //-------------------------------loginHanle---------------------------------//
+    //-------------------------------loginHandle---------------------------------//
 
     loginHandle: (state, action) => {
       console.log(action.payload, ' login action');
@@ -68,6 +69,17 @@ const userSlice = createSlice({
 
     },
 
+    //-----------------------------Add Product-----------------------------------//
+
+    product: (state, action) => {
+      const { user, product } = action.payload
+      console.log(user, product, ' user and product');
+      state.user = user
+      state.products.push(product)
+      console.log(state.products.push(product), ' updated');
+      return state
+    },
+
     //-----------------------------logoutUser------------------------------------//
 
     logoutUser: (state, action) => {
@@ -83,11 +95,8 @@ const userSlice = createSlice({
 
 //----------------------------Exporting Reducers action-----------------------------------//
 
-export const { signUpHandle, logoutUser, loginHandle } = userSlice.actions;
+export const { signUpHandle, logoutUser, loginHandle, product } = userSlice.actions;
 
 //---------------------------Exporting userSlice-------------------------//
 
 export default userSlice.reducer;
-
-
-

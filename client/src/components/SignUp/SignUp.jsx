@@ -10,13 +10,16 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useForm } from "react-hook-form";
 import { ErrorText } from "../helper/ErrorTestDisplayer";
+import { ExpandCircleDown } from '@mui/icons-material';
 import { useDispatch, useSelector } from "react-redux";
 import { signUpHandle } from "../../RTK/slice/userSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { FormControl, InputAdornment, InputLabel, MenuItem, Select } from "@mui/material";
 const SignUp = () => {
   const { signUp } = useSelector((store) => store.userSlice);
   const dispatch = useDispatch();
+  const [actorRole, setActorRole] = useState('')
   const {
     register,
     handleSubmit,
@@ -211,6 +214,38 @@ const SignUp = () => {
                   </>
                 )}
               </Grid>
+
+              <Grid item xs={12}>
+                <FormControl error={errors.actorRole} fullWidth required>
+                  <InputLabel id="registration-role">
+                    Account Role
+                  </InputLabel>
+                  <Select
+                    fullWidth
+                    required
+                    {...register('actorRole', { required: true })}
+                    onChange={(e) => setActorRole(e.target.value)}
+                    error={errors.actorRole}
+                    labelId="registration-role"
+                    name="actorRole"
+                    value={actorRole}
+                    label="actorRole"
+                    displayEmpty
+
+                  // endAdornment={
+                  //   <InputAdornment position="end">
+                  //     <ExpandCircleDown />
+                  //   </InputAdornment>
+                  // }
+                  >
+                    <MenuItem value={''}>  </MenuItem>
+                    <MenuItem value={'seller'}>  Seller </MenuItem>
+                    <MenuItem value={'buyer'}>  Buyer</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+
+
               <Grid item xs={12}>
                 <TextField
                   required
