@@ -25,6 +25,7 @@ const initialState = {
   products: [],
   signUp: false,
   isSeller: false,
+  isBuyer: false,
   user: null,
   loading: false,
   isLoggedIn: false,
