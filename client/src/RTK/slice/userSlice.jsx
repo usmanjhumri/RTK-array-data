@@ -24,7 +24,7 @@ const initialState = {
   loginHandle: [],
   products: [],
   signUp: false,
-
+  isSeller: false,
   user: null,
   loading: false,
   isLoggedIn: false,
